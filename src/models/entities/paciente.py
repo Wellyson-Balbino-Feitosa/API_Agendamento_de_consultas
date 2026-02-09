@@ -43,8 +43,8 @@ class Paciente:
         nullable=False
     )
     cpf: Mapped[str] = mapped_column(String(11), unique=True, index=True, nullable=False)
-    telefone: Mapped[int] = mapped_column()
-    endereco: Mapped[str] = mapped_column(String(255))
+    telefone: Mapped[str] = mapped_column(String(13), nullable=True)
+    endereco: Mapped[str] = mapped_column(String(255), nullable=True)
     consultas: Mapped[list['Consulta']] = relationship(
         back_populates='paciente'
     )
